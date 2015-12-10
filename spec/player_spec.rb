@@ -24,4 +24,10 @@ describe Player do
     end
   end
 
+  describe '#heal' do
+    it 'heals player' do
+      expect { player1.heal }.to change { player1.hit_points }.by(10)
+    end
+  end
+
 end

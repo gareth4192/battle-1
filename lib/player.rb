@@ -9,7 +9,9 @@ class Player
     @hit_points = hit_points
  end
 
-
+ def heal
+   @hit_points += Kernel.rand(0..10)
+ end 
 
  def receive_damage
    @hit_points -= Kernel.rand(0..10)

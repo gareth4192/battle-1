@@ -29,10 +29,16 @@ end
   #  As a Player,
   #  So I can Lose a game of Battle,
   #  I want to see a 'Lose' message if I reach 0HP first
-   scenario '' do
+   scenario 'Game over message' do
      sign_in_and_play
      5.times { attack_and_ok_twice }
      click_link'Attack'
      expect(page).to have_content 'Game Over! Johnny Cash wins'
+   end
+
+   scenario '' do
+     sign_in_and_play
+     click_link'Heal'
+     expect(page).to have_content 'Johnny Cash: 70HP'
    end
 end

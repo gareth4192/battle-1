@@ -31,6 +31,10 @@ class Game
     player.receive_damage
   end
 
+  def heal(player)
+    player.heal
+  end
+
   def player_1
     @players.first
   end

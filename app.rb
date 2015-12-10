@@ -35,6 +35,13 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+    get '/heal' do
+      @game = $game
+      @game.heal(@game.current_player)
+      erb :attack
+    end
+
+
   get '/game_over' do
     @game = $game
     erb :game_over

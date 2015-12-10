@@ -47,5 +47,11 @@ describe Game do
     end
   end
 
-
+  describe '#heal' do
+    it 'heals current player by random amount' do
+      allow(player1).to receive(:heal)
+      expect(player1).to receive(:heal)
+      game.heal(player1)
+    end
+  end
 end
