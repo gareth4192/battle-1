@@ -58,11 +58,12 @@ describe Game do
   describe '#feedback_message' do
     it 'returns an attack message after attack' do
       game.attack(player2)
-      expect(game.feedback_message).to eq "#{player1} attacked #{player2}"
+      expect(game.message).to eq "#{player1.name} attacked #{player2.name}"
     end
+
     it 'returns a healed message after heal' do
       game.heal(player1)
-      expect(game.feedback_message).to eq "#{player1} you are healed"
+      expect(game.message).to eq "#{player1.name} you are healed"
     end
   end
 end

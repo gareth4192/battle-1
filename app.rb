@@ -17,12 +17,6 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-  get '/switch' do
-    @game = $game
-    @game.switch
-    redirect @game.current_player.name == 'Computer' ? '/attack' : '/play'
-  end
-
   get '/play' do
     @game = $game
     erb :play
@@ -32,13 +26,19 @@ class Battle < Sinatra::Base
     @game = $game
     @game.attack(@game.other_player)
     redirect '/game_over' if @game.other_player.hit_points <= 0
-    erb :attack
+    redirect '/play'
   end
 
   get '/heal' do
     @game = $game
     @game.heal(@game.current_player)
-    erb :attack
+    redirect '/play'
+  end
+
+  get '/switch' do
+    @game = $game
+    @game.switch
+    redirect @game.current_player.name == 'Computer' ? '/attack' : '/play'
   end
 
   get '/game_over' do
