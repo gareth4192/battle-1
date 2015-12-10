@@ -1,2 +1,9 @@
-<h3><%= @game.current_player.name %> attacked <%= @game.other_player.name %></h3>
-<a href='/switch'>Ok</a>
+<div style="margin: 100px auto 30px">
+
+  <h1><%= @game.player_1_name %> vs. <%= @game.player_2_name %></h1>
+  <h3><%= @game.player_1_name %>: <%= @game.player_1_hit_points %>HP</h3>
+  <h3><%= @game.player_2_name %>: <%= @game.player_2_hit_points %>HP</h3>
+
+  <h3><%= @game.current_player.name %> attacked <%= @game.other_player.name %></h3>
+  <a href='/switch'>Ok</a>
+</div>

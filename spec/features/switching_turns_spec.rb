@@ -6,8 +6,12 @@ feature 'Switch turns' do
 
   scenario 'shows switch in players' do
     sign_in_and_play
-    2.times {attack_and_ok}
-    expect(page).not_to have_content 'Bruce Springsteen: 40HP'
+    attack_and_ok
+    expect(page).to have_content 'Computer attacked Johnny Cash'
   end
+
+  #   As a lonely Player,
+  # So I can keep my Battle skills up to scratch
+  # I want to play a Computerised opponent
 
 end

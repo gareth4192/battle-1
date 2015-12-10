@@ -9,19 +9,20 @@ end
   scenario 'Attacking player 2' do
     sign_in_and_play
     click_link 'Attack'
-    expect(page).to have_content 'Johnny Cash attacked Bruce Springsteen'
+    expect(page).to have_content 'Johnny Cash attacked Computer'
   end
 
   scenario 'reduce Player 2 HP by 10' do
      sign_in_and_play
      attack_and_ok
-     expect(page).not_to have_content 'Bruce Springsteen: 60HP'
-     expect(page).to have_content 'Bruce Springsteen: 50HP'
+     expect(page).not_to have_content 'Computer: 60HP'
+     expect(page).to have_content 'Computer: 50HP'
    end
 
    scenario 'reduce Player 1 HP by 10' do
      sign_in_and_play
-     2.times {attack_and_ok}
+     attack_and_ok
+     click_link'Ok'
      expect(page).to have_content 'Johnny Cash: 50HP'
    end
 
@@ -30,7 +31,7 @@ end
   #  I want to see a 'Lose' message if I reach 0HP first
    scenario '' do
      sign_in_and_play
-     10.times { attack_and_ok }
+     5.times { attack_and_ok_twice }
      click_link'Attack'
      expect(page).to have_content 'Game Over! Johnny Cash wins'
    end

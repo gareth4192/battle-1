@@ -12,7 +12,7 @@ class Battle < Sinatra::Base
 
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name])
+    player_2 = Player.new('Computer')
     $game = Game.new(player_1, player_2)
     redirect '/play'
   end
@@ -20,7 +20,7 @@ class Battle < Sinatra::Base
   get '/switch' do
     @game = $game
     @game.switch
-    redirect '/play'
+    redirect @game.current_player.name == 'Computer' ? '/attack' : '/play'
   end
 
   get '/play' do

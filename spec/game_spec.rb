@@ -7,7 +7,7 @@ describe Game do
 
   before do
     allow(Kernel).to receive(:rand) {10}
-  end 
+  end
 
   describe '#attack' do
     it 'damages the player' do
@@ -46,10 +46,6 @@ describe Game do
       expect(game.other_player).to eq player2
     end
   end
-
-
-
-
 
 
 end

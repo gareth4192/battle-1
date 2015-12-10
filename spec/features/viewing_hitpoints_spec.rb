@@ -6,11 +6,11 @@ feature 'View hitpoints' do
 
   before do
     allow(Kernel).to receive(:rand) {10}
-  end 
+  end
 
   scenario 'viewing player 2\'s hitpoints' do
     sign_in_and_play
-    expect(page).to have_content 'Bruce Springsteen: 60HP'
+    expect(page).to have_content 'Computer: 60HP'
   end
 
   scenario 'viewing player 1\'s hitpoints' do
