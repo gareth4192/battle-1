@@ -5,6 +5,10 @@ describe Game do
   let(:player2) { double(:player2) }
   subject(:game) { described_class.new(player1,player2) }
 
+  before do
+    allow(Kernel).to receive(:rand) {10}
+  end 
+
   describe '#attack' do
     it 'damages the player' do
       allow(player2).to receive(:receive_damage)
@@ -42,6 +46,8 @@ describe Game do
       expect(game.other_player).to eq player2
     end
   end
+
+
 
 
 

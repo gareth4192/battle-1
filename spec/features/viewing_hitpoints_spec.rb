@@ -4,6 +4,10 @@ feature 'View hitpoints' do
   # So I can see how close I am to winning
   # I want to see Player 2's Hit Points
 
+  before do
+    allow(Kernel).to receive(:rand) {10}
+  end 
+
   scenario 'viewing player 2\'s hitpoints' do
     sign_in_and_play
     expect(page).to have_content 'Bruce Springsteen: 60HP'

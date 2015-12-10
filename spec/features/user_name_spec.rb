@@ -1,6 +1,8 @@
 
 feature 'Enter names' do
-
+  before do
+    allow(Kernel).to receive(:rand) {10}
+  end 
   # As two Players,
   # So we can play a personalised game of Battle,
   # We want to Start a fight by entering our Names and seeing them
