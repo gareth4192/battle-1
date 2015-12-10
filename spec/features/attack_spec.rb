@@ -26,4 +26,14 @@ feature 'Attack' do
      click_link 'Ok'
      expect(page).to have_content 'Johnny Cash: 50HP'
    end
+
+  #  As a Player,
+  #  So I can Lose a game of Battle,
+  #  I want to see a 'Lose' message if I reach 0HP first
+   scenario '' do
+     sign_in_and_play
+     10.times { attack_and_ok }
+     click_link'Attack'
+     expect(page).to have_content 'Game Over! Johnny Cash wins'
+   end
 end

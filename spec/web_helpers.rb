@@ -4,3 +4,8 @@ def sign_in_and_play
   fill_in(:player_2_name, with: 'Bruce Springsteen')
   click_button('Submit')
 end
+
+def attack_and_ok
+  click_link'Attack'
+  click_link('Ok')
+end
