@@ -9,6 +9,19 @@ def_delegator :player_2, :hit_points, :player_2_hit_points
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
+    @current_player = player_1
+  end
+
+  def current_player
+    @current_player
+  end
+
+  def switch
+    @current_player = other_player
+  end
+
+  def other_player
+    @players.select { |x| x != @current_player }.first
   end
 
   def attack(player)
