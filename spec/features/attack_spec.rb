@@ -36,9 +36,10 @@ end
      expect(page).to have_content 'Game Over! Johnny Cash wins'
    end
 
-   scenario '' do
+   scenario 'Heals the current player' do
      sign_in_and_play
      click_link'Heal'
      expect(page).to have_content 'Johnny Cash: 70HP'
+     expect(page).to have_content 'Johnny Cash you are healed'
    end
 end

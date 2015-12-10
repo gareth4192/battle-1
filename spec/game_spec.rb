@@ -1,17 +1,18 @@
 require 'game'
 
 describe Game do
-  let(:player1) { double(:player1) }
-  let(:player2) { double(:player2) }
+  let(:player1) { double(:player1, name: 'Johnny Cash') }
+  let(:player2) { double(:player2, name: 'Computer') }
   subject(:game) { described_class.new(player1,player2) }
 
   before do
     allow(Kernel).to receive(:rand) {10}
+    allow(player2).to receive(:receive_damage)
+    allow(player1).to receive(:heal)
   end
 
   describe '#attack' do
     it 'damages the player' do
-      allow(player2).to receive(:receive_damage)
       expect(player2).to receive(:receive_damage)
       game.attack(player2)
     end
@@ -49,9 +50,19 @@ describe Game do
 
   describe '#heal' do
     it 'heals current player by random amount' do
-      allow(player1).to receive(:heal)
       expect(player1).to receive(:heal)
       game.heal(player1)
+    end
+  end
+
+  describe '#feedback_message' do
+    it 'returns an attack message after attack' do
+      game.attack(player2)
+      expect(game.feedback_message).to eq "#{player1} attacked #{player2}"
+    end
+    it 'returns a healed message after heal' do
+      game.heal(player1)
+      expect(game.feedback_message).to eq "#{player1} you are healed"
     end
   end
 end

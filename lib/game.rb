@@ -35,6 +35,11 @@ class Game
     player.heal
   end
 
+  def feedback_message
+    "#{@current_player} attacked #{other_player}"
+    "#{@current_player} attacked #{other_player}"
+  end
+
   def player_1
     @players.first
   end
