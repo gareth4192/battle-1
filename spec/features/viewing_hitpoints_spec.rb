@@ -8,4 +8,9 @@ feature 'View hitpoints' do
     sign_in_and_play
     expect(page).to have_content 'Bruce Springsteen: 60HP'
   end
+
+  scenario 'viewing player 1\'s hitpoints' do
+    sign_in_and_play
+    expect(page).to have_content 'Johnny Cash: 60HP'
+  end
 end
